@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iex test</title>
+</head>
+
+<body>
+    yo this the fake iex websocket
+    <button id="theButton">show me some stocks</button>
+    <p class="response"></p>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        document.querySelector('#theButton').addEventListener('click', () => {
+            socket.emit('clientRequestStock', '/tops?symbols=SNAP,fb,AIG%2b')
+        })
+
+        socket.on('quoteResponse', (res) => {
+            document.querySelector('.response').innerHTML = res;
+        })
+    </script>
+</body>
+
+</html>
