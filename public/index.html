@@ -20,7 +20,7 @@
         })
 
         socket.on('quoteResponse', (res) => {
-            document.querySelector('.response').innerHTML = res;
+            document.querySelector('.response').innerHTML += res;
         })
     </script>
 </body>
