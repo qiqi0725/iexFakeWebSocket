@@ -11,7 +11,7 @@
 <body>
     yo this the fake iex websocket
     <button id="theButton">show me some stocks</button>
-    <p class="response"></p>
+    <p class="response" style="font-size: 200px;"></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
@@ -20,7 +20,7 @@
         })
 
         socket.on('quoteResponse', (res) => {
-            document.querySelector('.response').innerHTML += res;
+            document.querySelector('.response').innerHTML = res.bidPrice;
         })
     </script>
 </body>
